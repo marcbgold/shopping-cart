@@ -25,14 +25,14 @@ public class Cart {
 	}
 
 	public void modifyItemQuantity(int index, int newQuantity) {
-		items.get(index).setQuantity(newQuantity);
+		items.get(index).updateQuantityAndTotalPrice(newQuantity);
 	}
 
 	public void removeItem(int index) {
 		items.remove(index);
 	}
 
-	public int listSize() {
+	public int getTotalItems() {
 		return items.size();
 	}
 
@@ -42,7 +42,7 @@ public class Cart {
 
 	public boolean checkCartForItem(String nameCheck) {
 		for (int i = 0; i < items.size(); i++) {
-			if (items.get(i).getName().equals(nameCheck)) {
+			if (items.get(i).getName().toLowerCase().equals(nameCheck)) {
 				return true;
 			}
 		}

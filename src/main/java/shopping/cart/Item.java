@@ -40,13 +40,14 @@ public class Item {
 		return totalPrice;
 	}
 
-	public void setQuantity(int quantity) {
+	public void updateQuantityAndTotalPrice(int quantity) {
 		this.quantity = quantity;
+		totalPrice = unitPrice * this.quantity;
 	}
 
 	@Override
 	public String toString() {
-		return ("Name: " + name + "     Quantity: " + quantity + "     Total Price: " + currencyFormatter.format(totalPrice));
+		return (name + "     Quantity: " + quantity + "     Total Price: " + currencyFormatter.format(totalPrice));
 	}
 
 }

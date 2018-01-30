@@ -19,7 +19,7 @@ public class CartTest {
 		Cart underTest = new Cart();
 		underTest.addItem(new Item("", 0, 0));
 
-		int check = underTest.listSize();
+		int check = underTest.getTotalItems();
 
 		assertEquals(1, check);
 	}
@@ -30,7 +30,7 @@ public class CartTest {
 		underTest.addItem(new Item("", 0, 0));
 		underTest.addItem(new Item("", 0, 0));
 
-		int check = underTest.listSize();
+		int check = underTest.getTotalItems();
 
 		assertEquals(2, check);
 	}
@@ -42,13 +42,13 @@ public class CartTest {
 		underTest.addItem(new Item("test2", 0, 0));
 		underTest.removeItem(0);
 
-		int check = underTest.listSize();
+		int check = underTest.getTotalItems();
 
 		assertEquals(1, check);
 	}
 
 	@Test
-	public void shouldModifyOneItemsQuantity() {
+	public void shouldModifyQuantityOfOneItem() {
 		Cart underTest = new Cart();
 		underTest.addItem(new Item("test", 10, 1));
 		underTest.modifyItemQuantity(0, 2);
@@ -66,13 +66,13 @@ public class CartTest {
 
 		double totalPrice = underTest.getTotalCartPrice();
 
-		assertEquals(26, totalPrice, .001);
+		assertEquals(26, totalPrice, 0.001);
 	}
 
 	@Test
 	public void shouldCheckIfItemIsAlreadyInCart() {
 		Cart underTest = new Cart();
-		underTest.addItem(new Item("test", 10, 1));
+		underTest.addItem(new Item("Test", 10, 1));
 
 		boolean check = underTest.checkCartForItem("test");
 

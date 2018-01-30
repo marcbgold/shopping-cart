@@ -16,25 +16,30 @@ public class ItemTest {
 
 	@Test
 	public void shouldInstantiateAnItemObjectWithAllValues() {
-		Item underTest = new Item("test", 9.99, 3);
+		Item underTest = new Item("test", 10, 3);
 
 		String name = underTest.getName();
 		double unitPrice = underTest.getUnitPrice();
 		int quantity = underTest.getQuantity();
+		double totalPrice = underTest.getTotalPrice();
 
 		assertEquals("test", name);
-		assertEquals(9.99, unitPrice, 0.001);
+		assertEquals(10, unitPrice, 0.001);
 		assertEquals(3, quantity);
+		assertEquals(30, totalPrice, 0.001);
+
 	}
 
 	@Test
-	public void shouldModifyQuantity() {
-		Item underTest = new Item("test", 9.99, 3);
+	public void shouldUpdateQuantityAndTotalPrice() {
+		Item underTest = new Item("test", 10, 3);
 
-		underTest.setQuantity(4);
+		underTest.updateQuantityAndTotalPrice(4);
 		int quantity = underTest.getQuantity();
+		double totalPrice = underTest.getTotalPrice();
 
 		assertEquals(4, quantity);
+		assertEquals(40, totalPrice, .001);
 	}
 
 }
